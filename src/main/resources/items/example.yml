@@ -1,0 +1,139 @@
+Settings:
+  #ID for this item:
+  # * Note: This ID can't be null or empty. It must be unique and match regular expression [a-zA-Z0-9_]+
+  ID: 'example'
+  #Set to true to lock the item and maintain it.
+  # * Bypass permission: exvoucher.bypass.locked
+  Locked: true
+
+  #Should the player can only use this item once?
+  # * Bypass permission: exvoucher.bypass.onetimeuse
+  OneTimeUse: true
+
+  #Should players twice click to confirm use?
+  # * Bypass permission: exvoucher.bypass.confirmuse
+  ConfirmUse: false
+
+  #Should the item be reduced by 1 when the player uses it?
+  # * Bypass permission: exvoucher.bypass.removeonuse
+  RemoveOnUse: true
+
+  #The limit of how many times it can be used (-1 to disable this feature):
+  # * Bypass permission: exvoucher.bypass.limitofuse
+  LimitOfUse: 5
+
+  #Expiry date:
+  # * Formatted based on "DateFormat" in config.yml
+  # * Bypass permission: exvoucher.bypass.expirydate
+  ExpiryDate: '01/01/2021 00:00:00'
+
+  #Conditions that allow players to use this item (required PlaceholderAPI plugin):
+  # * Supported expressions:
+  #  + Comparing numbers: ==, !=, <, >, >= and <=.
+  #  + Comparing strings: equals, !equals, equalsign, !equalsign, contains and !contains.
+  # * Formatted by: '<placeholder>;<expression>;<output>'
+  #Empty the list (like below) will disable this feature.
+  # * Bypass permission: exvoucher.bypass.conditions
+  #Conditions: []
+  Conditions:
+  - '%vault_eco_balance%;>=;50'
+  #- '<your condition>'
+  #Should the player meet all the above conditions to use it ?
+  MatchAll: true
+
+  # * Bypass permission: exvoucher.bypass.permissions
+  Permissions:
+    #Set to false if you want to use the list below as blacklist:
+    #  Blacklist: only players WITHOUT listed permissions can use the voucher.
+    #  Whitelist: only players WITH listed permissions can use the voucher.
+    AsWhitelist: true
+    #The player (needs one of / should not have) these permissions to use this item:
+    #List: []
+    List:
+    - 'exvoucher.use.example'
+    #- '<your custom permission>'
+
+  # * Bypass permission: exvoucher.bypass.players
+  Players:
+    AsWhitelist: true
+    #List of players name:
+    #List: []
+    List:
+    - 'PlayerA'
+    #- '<player name>'
+
+  # * Bypass permission: exvoucher.bypass.worlds
+  Worlds:
+    AsWhitelist: false
+    #List of worlds name:
+    #List: []
+    List:
+    - 'world'
+    #- '<world name>'
+
+#You can use the placeholder %args_<number>% from anywhere you want in sections below.
+Item:
+  #For those who prefer to use custom models from ItemsAdder (or Oraxen),
+  #use this option to specify a model.
+  #Format: 'Oraxen:<id>' or 'IA:<namespaceId>'
+  # * If this option is used, it means that: Material and Data cannot be used.
+  # * Remember to remove the 'CustomModelData' option first.
+  # * Leave it blank will disable this feature.
+  Model: '' #May not need to configure.
+  #Material of the item:
+  #Please make sure you use the correct name of the material based on the server version you are using.
+  #Legacy materials (1.8 -> 1.12.2) can be found at: https://helpch.at/docs/1.12.2/org/bukkit/Material.html
+  #Modern materials (1.13+) can be found at: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+  Material: 'PAPER'
+  Amount: 1 #May not need to configure.
+  Data: 0 #May not need to configure.
+  CustomModelData: 0 #Can only be used on the server version 1.14+. May not need to configure.
+  #Using the 'Texture' option if you need to display the head texture (requires Material is PLAYER_HEAD, or SKULL_ITEM and data is 3 in legacy versions):
+  #Texture: '<value>' #Can be found at: https://minecraft-heads.com/ (Value field).
+  #Texture: 'hdb-<id>' #Using for HeadDatabase plugin.
+  #Texture: 'player-<name>' #Skull of the player.
+  Enchantments: #May not need to configure.
+  #- '<enchant name>:<level>'
+  - 'durability:10'
+  HideFlags: #May not need to configure.
+  - 'HIDE_ATTRIBUTES'
+  #Display name:
+  Name: '&eExample Item' #May not need to configure.
+  Lore: #May not need to configure.
+  - ''
+  - '&7+ An example item of &bExtraVoucher &7plugin.'
+  - ''
+  - '&7+ First argument: &6%args_1%'
+  - '&7+ Second argument: &f%args_2%'
+  - ''
+  - '&8[&6Click&8] &7Use this item.'
+
+#List of commands:
+#- '<command without splash>' #Run the command normally.
+#- 'OP: <command without splash>' #Run the command as an OPerator.
+#- 'CONSOLE: <command without splash>' #Run the command in console.
+#- 'SOUND: <sound name>[:<distance>:<high>]' #Play a sound for the clicker.
+#- 'MESSAGE: <message>' #Send a message to the clicker.
+#- 'BROADCAST: <message>' #Broadcast to online players.
+#Add "<chance: <number>>" to the end of the command to make it has a chance to run.
+#E.g: - 'CONSOLE: say This command has 50.0% chance to be run.<chance: 50.0>'
+#Use %player% will replace by the name of the player who used this item.
+Commands:
+  #Run a random command:
+  Random: []
+  #Both left (and right) click:
+  Click: []
+  #Left click commands:
+  #LeftClick: []
+  LeftClick:
+  - 'eco give %player% %args_1%'
+  - 'bc &aThe player &b%player% &aused the sample item and received &6$%args_1%&a.'
+  - 'SOUND: ENTITY_PLAYER_LEVELUP'
+  - 'MESSAGE: &dLeft clicked!'
+  #Right click commands:
+  #RightClick: []
+  RightClick:
+  - 'eco give %player% %args_1%'
+  - 'bc &aThe player &b%player% &aused the sample item and received &6$%args_1%&a.'
+  - 'SOUND: ENTITY_PLAYER_LEVELUP:4.0:1.0'
+  - 'MESSAGE: &6Right clicked!'

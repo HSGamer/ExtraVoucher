@@ -1,0 +1,68 @@
+#If enabled, a notification and the download link will be sent on console whenever an update is available.
+CheckForUpdates: true
+
+Database:
+  #Type of database:
+  # * Please select the type before official use.
+  # * There are two types: SQLite and MySQL.
+  Type: 'SQLite'
+  # * For SQLite, it will be the file name.
+  # * For MySQL, it will be the database name.
+  Database: 'database'
+  Host: '127.0.0.1'
+  Port: 3306
+  Username: 'root'
+  Password: ''
+
+#Format date to use in some sections:
+DateFormat: 'MM/dd/yyyy HH:mm:ss'
+
+#Set delay time (in seconds) per clicks (-1 to disable):
+DelayTimeOnClick: 0.25
+
+#Settings for list GUI:
+ListGui:
+  #If you use the plugin in server version 1.8, the title length can't be larger than 32 characters.
+  Title: '&lList of Items'
+  #Play sound when the player interacts on GUI:
+  # * Sound can be found at: https://helpch.at/docs/<version>/org/bukkit/Sound.html
+  #Sound: ''
+  Sound: 'UI_BUTTON_CLICK'
+
+  #This is the decorative item:
+  DecorativeItem:
+    #For those who prefer to use custom models from ItemsAdder (or Oraxen),
+    #use this option to specify a model.
+    #Format: 'Oraxen:<id>' or 'IA:<namespaceId>'
+    # * If this option is used, it means that: Material and Data cannot be used.
+    # * Remember to remove the 'CustomModelData' option first.
+    # * Leave it blank will disable this feature.
+    Model: '' #May not need to configure.
+    #Material of the item (default we are using is for modern versions):
+    #Please make sure you use the correct name of the material based on the server version you are using.
+    #Legacy materials (1.8 -> 1.12.2) can be found at: https://helpch.at/docs/1.12.2/org/bukkit/Material.html
+    #Modern materials (1.13+) can be found at: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+    Material: 'BLACK_STAINED_GLASS_PANE'
+    Amount: 1 #May not need to configure.
+    Data: 0 #May not need to configure.
+    CustomModelData: 0 #Can only be used on the server version 1.14+. May not need to configure.
+    #Using the 'Texture' option if you need to display the head texture (requires Material is PLAYER_HEAD, or SKULL_ITEM and data is 3 in legacy versions):
+    #Texture: '<value>' #Can be found at: https://minecraft-heads.com/ (Value field).
+    #Texture: 'hdb-<id>' #Using for HeadDatabase plugin.
+    #Texture: 'player-<name>' #Skull of the player.
+    Enchantments: [] #May not need to configure.
+    #- '<enchant name>:<level>'
+    HideFlags: [] #May not need to configure.
+    #Display name:
+    Name: '&a' #May not need to configure.
+    Lore: [] #May not need to configure.
+
+  #This is the button to go back to the previous page:
+  PreviousButton:
+    Material: 'ARROW'
+    Name: '&2<< &aBack to previous page'
+
+  #This is the button to go to the next page:
+  NextButton:
+    Material: 'ARROW'
+    Name: '&aGo to next page &2>>'

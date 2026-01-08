@@ -1,0 +1,59 @@
+#Gift code:
+#Should be matched: [a-zA-Z0-9_]+
+starter:
+  #Set to true to lock this giftcode and maintain it.
+  # * Bypass permission: exvoucher.bypass.locked
+  Locked: true
+
+  #Should the player can only use this item once?
+  # * Bypass permission: exvoucher.bypass.onetimeuse
+  OneTimeUse: true
+
+  #The limit of how many times it can be used (-1 to disable this feature):
+  # * Bypass permission: exvoucher.bypass.limitofuse
+  LimitOfUse: 5
+
+  #Expiry date:
+  # * Formatted based on "DateFormat" in config.yml
+  # * Bypass permission: exvoucher.bypass.expirydate
+  ExpiryDate: '01/01/2021 00:00:00'
+
+  #List of items ID:
+  #ItemIDs: []
+  ItemIDs:
+  - 'example'
+  #- '<item ID>[:<args_1>:<args_2>:...]' #Brackets <> is required, [] is optional.
+
+  #Conditions that allow players to redeem this giftcode (required PlaceholderAPI plugin):
+  # * Supported expressions:
+  #  + Comparing numbers: ==, !=, <, >, >= and <=.
+  #  + Comparing strings: equals, !equals, equalsign, !equalsign, contains and !contains.
+  # * Formatted by: '<placeholder>;<expression>;<output>'
+  #Empty the list (like below) will disable this feature.
+  # * Bypass permission: exvoucher.bypass.conditions
+  #Conditions: []
+  Conditions:
+  - '%vault_eco_balance%;>=;50'
+  #- '<your condition>'
+  #Should the player meet all the above conditions to use it ?
+  MatchAll: true
+
+  #List of required permissions to use this giftcode:
+  # * Bypass permission: exvoucher.bypass.permissions
+  #Permissions: []
+  Permissions:
+  - 'exvoucher.giftcode.example'
+
+  #List of commands:
+  #- '<command without splash>' #Run the command normally.
+  #- 'OP: <command without splash>' #Run the command as an OPerator.
+  #- 'CONSOLE: <command without splash>' #Run the command in console.
+  #- 'SOUND: <sound name>[:<distance>:<high>]' #Play a sound for the clicker.
+  #- 'MESSAGE: <message>' #Send a message to the clicker.
+  #- 'BROADCAST: <message>' #Broadcast to online players.
+  #Add "<chance: <number>>" to the end of the command to make it has a chance to run.
+  #E.g: - 'CONSOLE: say This command has 50.0% chance to be run.<chance: 50.0>'
+  #Commands: []
+  Commands:
+  - 'CONSOLE: bc &aThe player &e{player} &ajust used the starter giftcode!'
+  - 'SOUND: entity_player_levelup'

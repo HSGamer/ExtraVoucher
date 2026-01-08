@@ -1,0 +1,50 @@
+PREFIX: '&8[&cExtraVoucher&8]&c '
+
+HELP:
+  header: '&8&l------=====[ &c&lExtraVoucher v{version} &8&l]=====------'
+  help: '&8 > &c/{label} [help|?] &f: &7Show this help page.'
+  give: '&8 > &c/{label} give <id> [player] [amount] [args_1] [args_2] ... &f: &7Give item.'
+  list: '&8 > &c/{label} list &f: &7List of available items.'
+  confirm: '&8 > &c/{label} confirm [args_1] [args_2] ... &f: &7Confirm the item from the List GUI'
+  redeem: '&8 > &c/{label} redeem <code> &f: &7Redeem a giftcode.'
+  reload: '&8 > &c/{label} reload &f: &7Reload all configs.'
+  footer: '&8&l-------------------------------------------'
+
+SUCCESS:
+  config-reload: '{prefix}&aSuccessfully reloaded configs!'
+
+  confirm-use: '{prefix}&7Please click again to confirm item use!'
+
+  confirm-item: "{prefix}&eUse &f/exvoucher confirm [args_1] [args_2] ... &eto apply the arguments and confirm the item"
+
+  Give:
+    self: '{prefix}&7You get &ex{amount} {id}&7.'
+    sender: '{prefix}&7You gave &ex{amount} {id} &7to &b{player}&7.'
+    target: '{prefix}&7You received &ex{amount} {id} &7from &b{player}&7.'
+
+FAIL:
+  no-permission: '{prefix}&cYou don''t have permission to do that!'
+  missing-args: '{prefix}&cMissing arguments! Usage: &e{usage}&c.'
+  only-players: '{prefix}&cOnly players can use this command!'
+  only-console: '{prefix}&cThis command can only be run in console!'
+
+  id-not-found: '{prefix}&cID &e{value} &ccannot be found!'
+  must-specify-player: '{prefix}&cPlease specify a player who is online.'
+  player-not-found: '{prefix}&cThe player &8(&e{value}&8) &ccould not be found!'
+  inventory-is-full: '{prefix}&cThe inventory is full!'
+  not-number: '{prefix}&cThe value &8(&e{value}&8) &cis not a valid number!'
+
+  must-click-slowly: '{prefix}&cPlease click slowly!'
+  item-locked: '{prefix}&cThis item is locked!'
+  item-expired: '{prefix}&cThis item expired!'
+  cannot-use-item: '{prefix}&cYou cannot use this item!'
+  end-of-usable: '{prefix}&cThis item has reached the end of its usable!'
+  item-already-used: '{prefix}&cYou have used this item before!'
+
+  invalid-code: '{prefix}&cThe code &8(&e{value}&8) &cis invalid!'
+  giftcode-locked: '{prefix}&cThis giftcode is locked!'
+  giftcode-not-found: '{prefix}&cCould not find the giftcode: &e{value}&c!'
+  giftcode-expired: '{prefix}&cThis giftcode expired!'
+  cannot-redeem-giftcode: '{prefix}&cYou cannot redeem this giftcode!'
+  item-dropped: '{prefix}&cYour inventory is full! Some items will be dropped on the ground!'
+  giftcode-already-redeemed: '{prefix}&cYou have redeemed this giftcode before!'

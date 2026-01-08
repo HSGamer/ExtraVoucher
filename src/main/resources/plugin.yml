@@ -1,0 +1,54 @@
+name: ${project.name}
+version: ${project.version}
+main: me.hsgamer.exvoucher.ExtraVoucher
+author: HSGamer, BengBeng
+api-version: 1.13
+softdepend: [NBTAPI, PlaceholderAPI]
+commands:
+  extravoucher:
+    aliases: [exvoucher, voucher, exv]
+
+permissions:
+  exvoucher.admin:
+    default: op
+    description: 'The highest permission.'
+
+  exvoucher.bypass.*:
+    default: op
+    description: 'Allows players to bypass all restrictions on using items.'
+    children:
+      exvoucher.bypass.slowclick:
+        description: 'Allows players not have to click slowly when using items.'
+      exvoucher.bypass.locked:
+        description: 'Allows players to use locked items.'
+      exvoucher.bypass.confirmuse:
+        description: 'Allows players to use items without confirmation.'
+      exvoucher.bypass.removeonuse:
+        description: 'Allows players to ignore the reduction in the number of items after use.'
+      exvoucher.bypass.onetimeuse:
+        description: 'Allows players to ignore one time use.'
+      exvoucher.bypass.limitofuse:
+        description: 'Allows players to not be reduced the quantity of items when used.'
+      exvoucher.bypass.expirydate:
+        description: 'Allows players to use the expired items.'
+      exvoucher.bypass.permissions:
+        description: 'Allows players to use items without permissions.'
+      exvoucher.bypass.players:
+        description: 'Allows players to use items even they are not on the required player list.'
+      exvoucher.bypass.worlds:
+        description: 'Allows players to use items without location restrictions.'
+
+  exvoucher.command.*:
+    default: op
+    description: 'Allows players to use all plugin''s commands.'
+    children:
+      exvoucher.command.help:
+        description: 'Allows players to use: /exvoucher help.'
+      exvoucher.command.give:
+        description: 'Allows players to use: /exvoucher give.'
+      exvoucher.command.list:
+        description: 'Allows players to use: /exvoucher list.'
+      exvoucher.command.redeem:
+        description: 'Allows players to use: /exvoucher redeem.'
+      exvoucher.command.reload:
+        description: 'Allows players to use: /exvoucher reload.'
