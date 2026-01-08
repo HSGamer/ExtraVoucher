@@ -164,6 +164,33 @@
 			<artifactId>hscore-database-client-java</artifactId>
 			<version>${core.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>me.hsgamer</groupId>
+			<artifactId>hscore-license-polymart</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.code.gson</groupId>
+					<artifactId>gson</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>me.hsgamer</groupId>
+			<artifactId>hscore-license-spigotmc</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.code.gson</groupId>
+					<artifactId>gson</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>me.hsgamer</groupId>
+			<artifactId>hscore-license-template</artifactId>
+			<version>${core.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>me.hsgamer</groupId>

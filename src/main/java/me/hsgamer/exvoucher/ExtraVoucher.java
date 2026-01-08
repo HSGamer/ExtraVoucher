@@ -1,6 +1,7 @@
 package me.hsgamer.exvoucher;
 
 import io.github.projectunified.craftux.spigot.SpigotInventoryUIListener;
+import io.github.projectunified.minelib.scheduler.async.AsyncScheduler;
 import me.hsgamer.exvoucher.commands.Commands;
 import me.hsgamer.exvoucher.commands.handler.CommandHandler;
 import me.hsgamer.exvoucher.configs.Config;
@@ -12,10 +13,17 @@ import me.hsgamer.exvoucher.data.item.ItemManager;
 import me.hsgamer.exvoucher.data.user.UserManager;
 import me.hsgamer.exvoucher.gui.ListGUI;
 import me.hsgamer.exvoucher.listeners.PlayerListener;
+import me.hsgamer.hscore.license.common.LicenseStatus;
+import me.hsgamer.hscore.license.polymart.PolymartLicenseChecker;
+import me.hsgamer.hscore.license.spigotmc.SpigotLicenseChecker;
+import me.hsgamer.hscore.license.template.LicenseTemplate;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.List;
+import java.util.Map;
 
 public final class ExtraVoucher extends JavaPlugin {
 
@@ -47,6 +55,7 @@ public final class ExtraVoucher extends JavaPlugin {
         this.registerEvents();
 
         getLogger().info("Plugin loaded successfully!");
+        checkLicense();
     }
 
     @Override
@@ -90,6 +99,14 @@ public final class ExtraVoucher extends JavaPlugin {
         getServer().getPluginManager().callEvent(event);
     }
 
+    private void checkLicense() {
+        LicenseTemplate template = new LicenseTemplate(new SpigotLicenseChecker("99117"), new PolymartLicenseChecker("1882", true, true));
+        template.addDefaultMessage(this.getName());
+        AsyncScheduler.get(this).run(() -> {
+            Map.Entry<LicenseStatus, List<String>> result = template.getResult();
+            result.getValue().forEach(result.getKey() == LicenseStatus.VALID ? getLogger()::info : getLogger()::warning);
+        });
+    }
 
     public ItemManager getItemManager() {
         return this.itemManager;
