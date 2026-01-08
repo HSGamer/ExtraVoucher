@@ -145,6 +145,7 @@ public interface User {
         Bukkit.getServer().dispatchCommand(player, cmd);
     }
 
+    @Deprecated
     String getBase64();
 
     boolean isUsedItem(Item item);
